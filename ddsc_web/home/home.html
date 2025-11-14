@@ -6,42 +6,247 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static "css/home.css" %}">
-        <header class="py-5 top-header-home">
-            <div class="text-center my-5">
-                <img class="img-fluid rounded-circle mb-4" src={% static 'ddsc-logo-base.svg' %} width="150" height="150"/>
-                <h1 class="text-white fs-3 fw-bolder">{% translate "Dansk Data Science Community" %}</h1>
-                <p class="text-white-50 mb-0">{% translate "Et fællesskab for Data Scientists" %}</p>
-            </div>
-        </header>
-        <!-- Content section-->
-        <section class="py-5">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="home-text col-lg-6">
-                        <h2>{% translate "Community" %}</h2>
-                        <p class="lead">{% translate "I communitiet arbejder vi med at styrke fællesskabet og relationerne i det danske Data Science miljø." %}</p>
-                        <p class="mb-0">{% translate "Vi organiserer alle der beskæftiger sig med Data Science værende professionelle, studerende og entusiaster." %}</p>
-                        <hr class="mb-0 me-0" />
-                    </div>
+
+<section class="hero" role="region" aria-labelledby="dds-hero-heading">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10 text-center">
+                <img class="hero__logo mb-4" src="{% static 'ddsc-logo-base.svg' %}" alt="{% translate "DDSC logo" %}">
+                <p class="hero__eyebrow text-uppercase">{% translate "Dansk Data Science Community" %}</p>
+                <h1 id="dds-hero-heading" class="hero__title display-4">{% translate "Fællesskabet hvor data bliver til impact" %}</h1>
+                <p class="hero__lead lead mx-auto">{% translate "Saml idéer, eksperter og open source-projekter, og skab løsninger der styrker dansk data science." %}</p>
+                <div class="hero__actions d-flex flex-column flex-sm-row justify-content-center">
+                    <a class="btn btn-brand btn-lg mb-3 mb-sm-0 mr-sm-3" href="#" role="button">{% translate "Bliv medlem" %}</a>
+                    <a class="btn btn-brand-outline btn-lg mb-3 mb-sm-0 mr-sm-3" href="{% url 'events:event_list' %}" role="button">{% translate "Udforsk events" %}</a>
+                    <a class="btn btn-brand-outline btn-lg" href="#newsletter" role="button">{% translate "Tilmeld nyhedsbrev" %}</a>
                 </div>
             </div>
-        </section>
-        <div class="py-5 middle-image">
-            <!-- Place any content inside here - Text should be white-->
-            <div style="height: 20rem"></div>
         </div>
-        <!-- Content section-->
-        <section class="py-5">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="home-text col-lg-6">
-                        <h2>{% translate "Open-Source" %}</h2>
-                        <p class="lead">{% translate "Vi arbejder for at styrke dansk Open-Source kultur gennem organisering af åbne projekter." %}</p>
-                        <p class="mb-0">{% translate "Vi mener et styrket open-source miljø vil gavne alle gennem øget samarbejde mellem virksomheder og organisationer." %}</p>
-                        <hr class="mb-0 me-0" />
+    </div>
+</section>
+
+<section class="panel-grid" aria-label="DDSC highlights">
+    <div class="container">
+        <div class="row">
+            <article class="col-lg-6 mb-4">
+                <div class="panel" role="group" aria-labelledby="panel-community-heading">
+                    <div class="panel__body">
+                        <h2 id="panel-community-heading" class="panel__title">{% translate "Et community der åbner døre" %}</h2>
+                        <p class="panel__text">{% translate "Dyk ned i meetups, studiegrupper og faglige netværk der samler data scientists, ingeniører og designere på tværs af Danmark." %}</p>
+                        <a class="panel__link" href="#" aria-label="{% translate "Læs mere om DDSC community" %}">{% translate "Se hvordan du kan være med" %}</a>
+                    </div>
+                    <div class="panel__media">
+                        <img src="{% static 'event_pics_color/socialt_samværd.jpeg' %}" alt="{% translate "Medlemmer netværker ved DDSC meetup" %}" loading="lazy" decoding="async">
                     </div>
                 </div>
+            </article>
+            <article class="col-lg-6 mb-4">
+                <div class="panel panel--light" role="group" aria-labelledby="panel-open-source-heading">
+                    <div class="panel__body">
+                        <h2 id="panel-open-source-heading" class="panel__title">{% translate "Open source som katalysator" %}</h2>
+                        <p class="panel__text">{% translate "Byg projekter der gør en forskel: fra sundhedsvæsenet til klimaindsatser. Vi hjælper hinanden med at planlægge, udvikle og lancere." %}</p>
+                        <div class="panel__cta">
+                            <a class="btn btn-brand mr-2 mb-2" href="#projects" role="button">{% translate "Se projekter" %}</a>
+                            <a class="btn btn-brand-outline mb-2" href="#" role="button">{% translate "Pitch din idé" %}</a>
+                        </div>
+                    </div>
+                    <div class="panel__media">
+                        <img src="{% static 'event_pics_color/faglig_diskussioner_1.jpeg' %}" alt="{% translate "DDSC medlemmer samarbejder om open source" %}" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="projects" id="projects" aria-labelledby="projects-heading">
+    <div class="container text-center">
+        <h2 id="projects-heading" class="section-heading">{% translate "Aktuelle open source projekter" %}</h2>
+        <p class="lead mb-5">{% translate "Skaler dine ideer sammen med et engageret community og bidrag til løsninger, der skaber værdi." %}</p>
+        <div class="row">
+            <article class="col-md-4 mb-4">
+                <div class="project-card" role="group" aria-labelledby="project-platform-heading">
+                    <img class="project-card__image" src="{% static 'event_pics_color/faglig_oplæg_1.jpeg' %}" alt="{% translate "Team der præsenterer DDSC Platform" %}" loading="lazy" decoding="async">
+                    <div class="project-card__body">
+                        <h3 id="project-platform-heading" class="h5">{% translate "DDSC Platform" %}</h3>
+                        <p class="project-card__text">{% translate "Den åbne platform for medlemskab, events og projekter bygget med Django og moderne datastak." %}</p>
+                        <span class="badge badge-brand">{% translate "Python" %}</span>
+                    </div>
+                </div>
+            </article>
+            <article class="col-md-4 mb-4">
+                <div class="project-card" role="group" aria-labelledby="project-mobility-heading">
+                    <img class="project-card__image" src="{% static 'event_pics_color/networking.jpeg' %}" alt="{% translate "Data science team analyserer mobilitetsdata" %}" loading="lazy" decoding="async">
+                    <div class="project-card__body">
+                        <h3 id="project-mobility-heading" class="h5">{% translate "Åben mobilitet" %}</h3>
+                        <p class="project-card__text">{% translate "Open source analyser der styrker kollektiv trafik og bæredygtige transportvalg." %}</p>
+                        <span class="badge badge-brand-alt">{% translate "Data" %}</span>
+                    </div>
+                </div>
+            </article>
+            <article class="col-md-4 mb-4">
+                <div class="project-card" role="group" aria-labelledby="project-health-heading">
+                    <img class="project-card__image" src="{% static 'event_pics_color/faglig_oplæg_3.jpeg' %}" alt="{% translate "Hold der bygger Health Insights modeller" %}" loading="lazy" decoding="async">
+                    <div class="project-card__body">
+                        <h3 id="project-health-heading" class="h5">{% translate "Health Insights" %}</h3>
+                        <p class="project-card__text">{% translate "Prognosemodeller der hjælper hospitaler med at planlægge ressourcer og kapacitet." %}</p>
+                        <span class="badge badge-brand-alt">{% translate "ML" %}</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="events" id="events" aria-labelledby="events-heading">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <h2 id="events-heading" class="section-heading">{% translate "Kommende events" %}</h2>
+                <p class="lead">{% translate "Tag med til meetups, hacknights og talks i hele landet. Her er et glimt af kalenderen." %}</p>
+                <ul class="events__list" aria-label="Listen over kommende events">
+                    <li>
+                        <h3 class="h6 mb-1">{% translate "Community hacknight" %}</h3>
+                        <p class="small text-muted mb-0">{% translate "København · 20. november" %}</p>
+                    </li>
+                    <li>
+                        <h3 class="h6 mb-1">{% translate "Applied ML lightning talks" %}</h3>
+                        <p class="small text-muted mb-0">{% translate "Aarhus · 4. december" %}</p>
+                    </li>
+                    <li>
+                        <h3 class="h6 mb-1">{% translate "Data for Good sprint" %}</h3>
+                        <p class="small text-muted mb-0">{% translate "Online · 15. januar" %}</p>
+                    </li>
+                </ul>
             </div>
-        </section>
-    {% include "projects.html" %}
-{% endblock  %}
+            <div class="col-lg-7">
+                <section class="card events__calendar" aria-labelledby="events-calendar-heading">
+                    <div class="card-body">
+                            <div class="events__calendar-header d-flex justify-content-between align-items-center">
+                                <h3 id="events-calendar-heading" class="h5 mb-0">{% translate "December 2025" %}</h3>
+                                <span class="badge badge-brand-alt">{% translate "Forhåndsvisning" %}</span>
+                            </div>
+                            <table class="events-calendar" aria-describedby="events-calendar-description">
+                                <caption class="sr-only">{% translate "Kalenderoversigt for december 2025" %}</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">{% translate "Man" %}</th>
+                                        <th scope="col">{% translate "Tir" %}</th>
+                                        <th scope="col">{% translate "Ons" %}</th>
+                                        <th scope="col">{% translate "Tor" %}</th>
+                                        <th scope="col">{% translate "Fre" %}</th>
+                                        <th scope="col">{% translate "Lør" %}</th>
+                                        <th scope="col">{% translate "Søn" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">1</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">2</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">3</span></div></td>
+                                        <td><div class="events-calendar__day events-calendar__day--event" aria-label="{% translate "4. december – Applied ML lightning talks" %}"><span class="events-calendar__date">4</span><span class="events-calendar__dot" aria-hidden="true"></span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">5</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">6</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">7</span></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">8</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">9</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">10</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">11</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">12</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">13</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">14</span></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">15</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">16</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">17</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">18</span></div></td>
+                                        <td><div class="events-calendar__day events-calendar__day--event" aria-label="{% translate "19. december – Community julehygge" %}"><span class="events-calendar__date">19</span><span class="events-calendar__dot" aria-hidden="true"></span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">20</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">21</span></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">22</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">23</span></div></td>
+                                        <td><div class="events-calendar__day events-calendar__day--event" aria-label="{% translate "24. december – Online open source drop-in" %}"><span class="events-calendar__date">24</span><span class="events-calendar__dot" aria-hidden="true"></span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">25</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">26</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">27</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">28</span></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">29</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">30</span></div></td>
+                                        <td><div class="events-calendar__day"><span class="events-calendar__date">31</span></div></td>
+                                        <td><div class="events-calendar__day events-calendar__day--muted"><span class="events-calendar__date">1</span></div></td>
+                                        <td><div class="events-calendar__day events-calendar__day--muted"><span class="events-calendar__date">2</span></div></td>
+                                        <td><div class="events-calendar__day events-calendar__day--muted"><span class="events-calendar__date">3</span></div></td>
+                                        <td><div class="events-calendar__day events-calendar__day--muted"><span class="events-calendar__date">4</span></div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <p id="events-calendar-description" class="sr-only">{% translate "Kalenderen viser kommende DDSC events markeret med røde prikker." %}</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container text-center">
+        <h2 id="testimonials-heading" class="section-heading">{% translate "Stemmer fra fællesskabet" %}</h2>
+        <div class="row mt-4">
+            <article class="col-md-4 mb-4" aria-label="Testimonial fra Sofie, Lead Data Scientist">
+                <div class="testimonials__card">
+                    <p class="testimonials__quote">“{% translate "DDSC er stedet hvor jeg tester idéer og hurtigt finder sparring til nye løsninger." %}”</p>
+                    <p class="testimonials__author">Sofie · {% translate "Lead Data Scientist" %}</p>
+                </div>
+            </article>
+            <article class="col-md-4 mb-4" aria-label="Testimonial fra Jonas, Ph.d.-studerende">
+                <div class="testimonials__card">
+                    <p class="testimonials__quote">“{% translate "Mit første open source-samarbejde startede her. Det gav mig både netværk og erfaring." %}”</p>
+                    <p class="testimonials__author">Jonas · {% translate "Ph.d.-studerende" %}</p>
+                </div>
+            </article>
+            <article class="col-md-4 mb-4" aria-label="Testimonial fra Amina, Community Organiser">
+                <div class="testimonials__card">
+                    <p class="testimonials__quote">“{% translate "Når vi mødes, opstår nye projekter. DDSC gør det let at bidrage." %}”</p>
+                    <p class="testimonials__author">Amina · {% translate "Community Organiser" %}</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="newsletter" aria-labelledby="cta-heading">
+    <div class="container">
+        <div class="cta__panel">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h2 id="cta-heading" class="cta__title">{% translate "Klar til at bygge næste dataprodukt?" %}</h2>
+                    <p class="cta__text">{% translate "Få invitationer til events, open source-projekter og workshops direkte i din indbakke." %}</p>
+                </div>
+                <div class="col-lg-4">
+                    <form class="cta__form" method="post" action="#">
+                        {% csrf_token %}
+                        <label class="sr-only" for="cta-email">{% translate "Indtast din e-mail" %}</label>
+                        <div class="input-group">
+                            <input id="cta-email" class="form-control" type="email" name="email" placeholder="{% translate "din@email.dk" %}" required aria-required="true">
+                            <div class="input-group-append">
+                                <button class="btn btn-brand-outline" type="submit">{% translate "Tilmeld" %}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer_scripts %}
+    <script src="https://use.fontawesome.com/releases/v6.1.1/js/all.js" crossorigin="anonymous" defer></script>
+{% endblock footer_scripts %}

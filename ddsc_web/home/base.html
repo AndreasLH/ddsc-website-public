@@ -37,6 +37,7 @@
     </div>
     {% include "footer.html" %}
   </div>
+  {% block footer_scripts %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
   <script src="https://use.fontawesome.com/releases/v6.1.1/js/all.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -48,20 +49,21 @@
     $(window).on('load', function() {
         $('#registerDone').modal('show');
     });
-</script>
-<script type="text/javascript">
-  $(function () {
-    $("#datetimepicker1").datetimepicker({
-      format: 'DD-MM-YYYY HH:mm',
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      $("#datetimepicker1").datetimepicker({
+        format: 'DD-MM-YYYY HH:mm',
+      });
     });
-  });
-</script>
-<script type="text/javascript">
-  $(function () {
-    $("#datetimepicker2").datetimepicker({
-      format: 'DD-MM-YYYY HH:mm',
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      $("#datetimepicker2").datetimepicker({
+        format: 'DD-MM-YYYY HH:mm',
+      });
     });
-  });
-</script>
+  </script>
+  {% endblock footer_scripts %}
 </body>
 </html>
